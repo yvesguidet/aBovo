@@ -7,9 +7,12 @@
 def aBovo():
 	''' '''
 	from bugGicl import dirCartes, numSemCour
-	n = numSemCour()
-	
-	assert 0, n
+	n = numSemCour() + 1
+
+	from insWeek import annee2chiffres
+	an = annee2chiffres()
+	nomc = 'Sem{:02d}{}'.format(n, an)
+	assert 0, nomc
 
 if __name__ == '__main__':
 	aBovo()
