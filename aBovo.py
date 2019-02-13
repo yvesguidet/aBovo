@@ -20,12 +20,12 @@ def insDu(c):
 	q = du[2]
 	numMois = int(du[1])
 
-	m = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre'][numMois]
+	m = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre'][numMois - 1]
 
 	if True:
 		print 'insDu(c) : m = {}'.format(m)
-	a = du[0]	# year
-	assert 0, (q, m, a)
+	y = du[0]	# year
+	assert 0, (q, m, y)
 
 def aBovo():
 	''' '''
