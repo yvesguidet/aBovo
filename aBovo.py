@@ -25,7 +25,9 @@ def insDu(c):
 	if True:
 		print 'insDu(c) : m = {}'.format(m)
 	y = du[0]	# year
-	assert 0, (q, m, y)
+	t = 'du {} {} {}'.format(q, m, y)
+
+	assert 0, (q, m, y, t)
 
 def aBovo():
 	''' '''
