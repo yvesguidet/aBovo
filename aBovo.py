@@ -4,6 +4,9 @@
 #	lundi 11 février 2019, 19:26:19 (UTC+0100)
 # 	génération de la sem suiv. à partir de rien
 
+#	/home/yves/2011/dev/Python/outils/pyNewMap/
+from newMap import insDir
+
 def aBovo():
 	''' '''
 	from bugGicl import dirCartes, numSemCour
@@ -16,6 +19,7 @@ def aBovo():
 	import newMap
 	
 	c = newMap.main(nombase = nomc, dater = False, leDir = '.', over = True)
+	insDir(c)
 	assert 0, c
 
 if __name__ == '__main__':
