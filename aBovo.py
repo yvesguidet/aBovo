@@ -7,10 +7,38 @@
 #	/home/yves/2011/dev/Python/outils/pyNewMap/
 from newMap import insDir
 
-def insDu(c):
-	''' insère date '''
+def insTexte(c, t):
+	''' ins. "t" ds "c" '''
 	#	grep -ni insdir /media/home/yves/2011/dev/Python/outils/pyNewMap/newMap.py
 	#	434:def insDir(c):
+
+	from lxml import etree
+	arbre = etree.parse(c)
+
+	ssArbre = arbre.xpath("/map/node")[0]
+	nomCarte = ssArbre.get('TEXT')
+
+
+	if True:
+		print u'insDir : ssArbre = {}'.format(ssArbre)
+		print u'insDir : type(ssArbre) = {}'.format(type(ssArbre))
+		print u'insDir : nomCarte = {}'.format(nomCarte)
+
+	verrue = etree.Element("node")
+	verrue.set('TEXT', t)
+
+	ssArbre.append(verrue)
+
+	import sys
+
+	sys.path.append('/home/yves/2011/dev/Python/XCartes/XNextWeek')
+
+	from postTraitCHebdo import sauveCarte
+
+	sauveCarte(arbre, c)
+
+def insDu(c):
+	''' insère date '''
 
 	from semaineSuivante import lundiProchain
 
@@ -27,7 +55,12 @@ def insDu(c):
 	y = du[0]	# year
 	t = 'du {} {} {}'.format(q, m, y)
 
-	assert 0, (q, m, y, t)
+	insTexte(c, t)
+
+def nuage(c):
+	''' ajoute le nuage '''
+#	<cloud/>
+	assert 0, c
 
 def aBovo():
 	''' '''
@@ -43,7 +76,8 @@ def aBovo():
 	c = newMap.main(nombase = nomc, dater = False, leDir = '.', over = True)
 	insDu(c)
 	insDir(c)
-	assert 0, c
+	nuage(c)
+	assert 0, 'terminer'
 
 if __name__ == '__main__':
 	aBovo()
