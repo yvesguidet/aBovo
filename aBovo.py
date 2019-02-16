@@ -61,11 +61,10 @@ def nuage(c):
 	''' ajoute le nuage '''
 #	<cloud/>
 	verrue = etree.Element("cloud")
-	assert 0, verrue
-	verrue.set('TEXT', t)
 
 	ssArbre.append(verrue)
 
+	assert 0, ssArbre
 	import sys
 
 	sys.path.append('/home/yves/2011/dev/Python/XCartes/XNextWeek')
