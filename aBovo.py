@@ -6,13 +6,13 @@
 
 #	/home/yves/2011/dev/Python/outils/pyNewMap/
 from newMap import insDir
+from lxml import etree
 
 def insTexte(c, t):
 	''' ins. "t" ds "c" '''
 	#	grep -ni insdir /media/home/yves/2011/dev/Python/outils/pyNewMap/newMap.py
 	#	434:def insDir(c):
 
-	from lxml import etree
 	arbre = etree.parse(c)
 
 	ssArbre = arbre.xpath("/map/node")[0]
@@ -60,7 +60,19 @@ def insDu(c):
 def nuage(c):
 	''' ajoute le nuage '''
 #	<cloud/>
-	assert 0, c
+	verrue = etree.Element("cloud")
+	assert 0, verrue
+	verrue.set('TEXT', t)
+
+	ssArbre.append(verrue)
+
+	import sys
+
+	sys.path.append('/home/yves/2011/dev/Python/XCartes/XNextWeek')
+
+	from postTraitCHebdo import sauveCarte
+
+	sauveCarte(arbre, c)
 
 def aBovo():
 	''' '''
