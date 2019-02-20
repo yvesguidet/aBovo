@@ -63,6 +63,10 @@ def nuage(c):
 	verrue = etree.Element("cloud")
 
 	arbre = etree.parse(c)
+	noeud = arbre.xpath("/map/node")
+	import nodes
+	#	assert 0, (noeud, type(noeud))
+	nodes.zoli(noeud[0])
 	ssArbre = arbre.xpath("/map/node")[0]
 	ssArbre.append(verrue)
 
@@ -73,7 +77,6 @@ def nuage(c):
 	from postTraitCHebdo import sauveCarte
 
 	sauveCarte(arbre, c)
-	assert 0, c
 
 def aBovo():
 	''' '''
